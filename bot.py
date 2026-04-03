@@ -35,7 +35,10 @@ def handler(msg):
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             ssh.connect(ip, username=user, password=pw)
             
-            cmd = "wget https://raw.githubusercontent.com/Kira0621/Auto-Vless/main/install.sh -O install.sh && bash install.sh"
+            cmd = """
+wget https://raw.githubusercontent.com/YOURNAME/REPO/main/install.sh -O install.sh
+echo 'pass' | sudo -S bash install.sh
+"""
             stdin, stdout, stderr = ssh.exec_command(cmd)
 
             result = stdout.read().decode()
