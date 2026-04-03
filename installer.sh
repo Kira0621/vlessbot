@@ -100,4 +100,4 @@ systemctl restart xray
 echo "===================================="
 echo "VLESS LINK"
 echo "===================================="
-echo "vless://$UUID@$DOMAIN:443?type=ws&security=tls&path=/assets#Teamsanji"
+echo "vless://$UUID@$DOMAIN:443?type=ws&encryption=none&security=tls&path=%2Fassets&host=$DOMAIN&sni=$DOMAIN&fp=chrome&alpn=http%2F1.1#Teamsanji"
