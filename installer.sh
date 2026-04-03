@@ -14,9 +14,9 @@ mkdir -p /var/www/html
 cat > /var/www/html/index.html <<EOF
 <!DOCTYPE html>
 <html>
-<head><title>Burmesestyles</title></head>
+<head><title>Teamsanji</title></head>
 <body>
-<h1>Welcome to Burmesestyles</h1>
+<h1>Welcome to Teamsanji</h1>
 <p>This website is under maintenance.</p>
 </body>
 </html>
@@ -41,6 +41,7 @@ systemctl restart nginx
 
 echo "[4] Get SSL cert (standalone)..."
 systemctl stop nginx
+certbot delete --cert-name $DOMAIN || true
 certbot certonly --standalone -d $DOMAIN --non-interactive --agree-tos -m admin@$DOMAIN
 systemctl start nginx
 
@@ -99,4 +100,4 @@ systemctl restart xray
 echo "===================================="
 echo "VLESS LINK"
 echo "===================================="
-echo "vless://$UUID@$DOMAIN:443?type=ws&security=tls&path=/assets#Burmesestyles"
+echo "vless://$UUID@$DOMAIN:443?type=ws&security=tls&path=/assets#Teamsanji"
